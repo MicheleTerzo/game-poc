@@ -1,0 +1,40 @@
+.board {
+  border: 1px solid blue;
+  width: 70vw;
+  height: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  .board-row {
+    border: 1px solid green;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: calc(100% / 11);
+  }
+
+  .property {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    width: calc(100% / 11);
+    height: 100%;
+
+    &-right {
+      position: relative;
+      left: calc((100% / 11) * 9);
+    }
+    &-left {
+      position: relative;
+      transform: rotate(90deg);
+    }
+  }
+
+  .start-tile {
+    border: 1px solid green;
+  }
+}
