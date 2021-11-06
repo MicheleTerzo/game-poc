@@ -1,32 +1,33 @@
 .board {
-  border: 1px solid blue;
-  width: 70vw;
-  height: 70vw;
+  width: 75vw;
+  height: 75vw;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
 
   .board-row {
-    border: 1px solid green;
     display: flex;
     justify-content: start;
     align-items: center;
     width: 100%;
     height: calc(100% / 11);
+    text-align: center;
   }
 
   .property {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    flex-direction: column;
+    border-top: 1px solid black;
     width: calc(100% / 11);
     height: 100%;
 
     &-right {
       position: relative;
       left: calc((100% / 11) * 9);
+      //transform: rotate(-90deg);
     }
     &-left {
       position: relative;

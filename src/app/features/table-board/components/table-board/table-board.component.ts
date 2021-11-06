@@ -13,6 +13,7 @@ export class TableBoardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 }

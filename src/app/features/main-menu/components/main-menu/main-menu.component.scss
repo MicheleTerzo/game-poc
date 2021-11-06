@@ -1,0 +1,36 @@
+.main-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-body {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 5%;
+
+  .menu-row {
+    height: calc(100% / 3);
+
+    .menu-selection-btn {
+      height: 50%;
+
+    }
+  }
+}
+
+.starting-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+

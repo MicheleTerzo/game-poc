@@ -1,0 +1,80 @@
+<div class="dialog-main">
+  <div class="dialog-header">
+    Seleziona le opzioni per la partita.
+    <i class="fas fa-times-circle fa-2x" (click)="closeModal()"></i>
+  </div>
+  <div class="dialog-content">
+    <form action="" [formGroup]="playersConfiguration">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            Seleziona il numero di giocatori.
+            <div class="player-selection">
+              <select name="playerCount" id="playerCount"
+                      [formControl]="playerCount">
+                <option value="2">2 Giocatori</option>
+                <option value="3">3 Giocatori</option>
+                <option value="4">4 Giocatori</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-8 d-flex justify-content-center align-items-start flex-column">
+
+            <ng-container formArrayName="players">
+              <ng-container *ngFor="let player of players.controls; let i = index;"
+                            [formGroupName]="i">
+                <div class="player-customization-section mt-2">
+                  <div class="player-customization-item">
+
+                    <!--PLAYER NUMBER-->
+                    <strong>Giocatore {{i + 1}}</strong>
+
+                    <!--PlAYER NAME-->
+                    <div class="player-customization-name">
+                      <label for="playerName-{{i}}" class="me-3">Nome</label>
+                      <input type="text" id="playerName-{{i}}" formControlName="name">
+                    </div>
+
+                    <!--PLAYER COLOR-->
+                    <div class="player-customization-color">
+                      <label for="colorSelect-{{i}}"
+                             class="me-3">Colore</label>
+                      <select name="" id="colorSelect-{{i}}" formControlName="color">
+                        <option
+                          [value]="color.value"
+                          *ngFor="let color of playerColors">
+                          {{color.name}}
+                        </option>
+                      </select>
+                    </div>
+
+                    <!--PLAYER-ICON-->
+                    <div class="player-customization-icon">
+                      <label for="iconSelect-{{i}}"
+                             class="me-3">Icona</label>
+                      <select name="" id="iconSelect-{{i}}" formControlName="icon">
+                        <option
+                          [value]="icon.value"
+                          *ngFor="let icon of playerIcons">
+                          {{icon.name}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="player-customization-display">
+                    <span class="me-2">{{players.value[i].name}}</span>
+                    <i [class]="players.value[i].icon" class="fa-3x"
+                       [style.color]="players.value[i].color "></i>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="dialog-footer">
+
+  </div>
+</div>

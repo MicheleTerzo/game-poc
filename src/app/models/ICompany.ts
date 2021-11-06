@@ -8,10 +8,13 @@ export interface ICompany {
     buyPrice: number;
     mortgageIncome: number;
     mortgageBuyBack: number;
-  },
+  };
   rentPrices: {
     baseMultiplier: number;
     allMultiplier: number;
   };
-  style?: StyleConfig
+  style?: StyleConfig;
+  owner: string;
+  isMortgaged: boolean;
+
 }

@@ -1,0 +1,21 @@
+<div class="main-page">
+  <div class="menu-body">
+    <div class="menu-row">
+      <button class="menu-selection-btn"
+              (click)="openStartGameModal()"
+      >
+        GIOCA
+      </button>
+    </div>
+    <div class="menu-row">
+      <button class="menu-selection-btn">IMPOSTAZIONI</button>
+    </div>
+    <div class="menu-row">
+      <button class="menu-selection-btn">CREDITI</button>
+    </div>
+  </div>
+</div>
+<div class="starting-modal" *ngIf="startModal">
+  <app-starting-modal (closeModalEmitter)="closeStartGameModal()"></app-starting-modal>
+</div>
+

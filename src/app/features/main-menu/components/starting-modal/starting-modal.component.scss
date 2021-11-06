@@ -1,0 +1,86 @@
+.dialog-main {
+  width: 80vw;
+  height: 80vh;
+  border: 1px solid red;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .dialog-header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .dialog-content {
+    height: 80%;
+    width: 100%;
+  }
+
+  .dialog-footer {
+    height: 10%;
+    width: 100%;
+  }
+}
+
+.player-selection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.player-customization {
+  &-section {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+
+  &-item {
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+  }
+
+  &-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+  }
+
+  &-color {
+    margin-top: 2%;
+    width: 100%;
+  }
+
+  &-name {
+    margin-top: 2%;
+    width: 100%;
+  }
+
+  &-icon {
+    margin-top: 2%;
+    width: 100%;
+
+  }
+}
+
+.debug {
+  border: 1px solid purple;
+}
+
