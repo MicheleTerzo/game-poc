@@ -1,6 +1,6 @@
 .dialog-main {
-  width: 80vw;
-  height: 80vh;
+  width: 50vw;
+  height: 50vh;
   border: 1px solid red;
   background: white;
   border-radius: 20px;
@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 
   .dialog-header {
     height: 10%;
@@ -21,6 +22,8 @@
   .dialog-content {
     height: 80%;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .dialog-footer {

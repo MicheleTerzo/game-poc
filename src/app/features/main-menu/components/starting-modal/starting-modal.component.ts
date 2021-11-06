@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {debounceTime} from "rxjs/operators";
 
 @Component({
@@ -10,6 +10,15 @@ import {debounceTime} from "rxjs/operators";
 export class StartingModalComponent implements OnInit {
   @Output() closeModalEmitter: EventEmitter<void> = new EventEmitter<void>();
 
+  //sliderConfiuration
+  maxSlider: number = 3;
+  minSlider: number = 1;
+  sliderCounter: number = 1;
+
+  //Starting money selection
+  startingMoney: number[] = [1500, 2000, 2500, 3000];
+
+  //Available colors
   playerColors: { name: string, value: string }[] = [
     {
       name: 'Blu',
@@ -28,6 +37,8 @@ export class StartingModalComponent implements OnInit {
       value: 'Red'
     }
   ];
+
+  //Available icons
   playerIcons: { name: string, value: string }[] = [
     {
       name: 'Carretto',
@@ -47,16 +58,22 @@ export class StartingModalComponent implements OnInit {
     }
   ]
 
+  //playerCount Selector
   playerCount: FormControl = this.fb.control(0);
 
+  //Player configuration form
   playersConfiguration: FormGroup;
 
 
   constructor(private fb: FormBuilder) {
     this.playersConfiguration = fb.group({
-      players: fb.array([])
+      players: fb.array([]),
+      matchConfig: fb.group({
+        startMoney: fb.control(''),
+
+      })
     });
-    this.playersConfiguration.valueChanges.pipe(debounceTime(800)).forEach((value) => console.log(value));
+    this.playersConfiguration.valueChanges.pipe(debounceTime(400)).forEach((value) => console.log(value));
   }
 
   get players(): FormArray {
@@ -93,17 +110,32 @@ export class StartingModalComponent implements OnInit {
     for (let amount = 0; amount < realCount; amount++) {
       this.players.push(
         this.fb.group({
-          name: this.fb.control(''),
-          color: this.fb.control(''),
-          icon: this.fb.control('')
+          name: this.fb.control('', Validators.required),
+          color: this.fb.control('', Validators.required),
+          icon: this.fb.control('', Validators.required)
         })
       );
     }
   }
 
 
+  /**
+   * Emit the event to close the starting game modal
+   */
   closeModal(): void {
     this.closeModalEmitter.emit();
+  }
+
+  sliderForward(): void {
+    if ((this.sliderCounter < this.maxSlider)) {
+      this.sliderCounter++;
+    }
+  }
+
+  sliderBack(): void {
+    if (this.sliderCounter > this.minSlider) {
+      this.sliderCounter--;
+    }
   }
 
 

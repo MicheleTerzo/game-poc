@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 })
 export class MainMenuComponent {
 
-  startModal: boolean = true;
+  startModal: boolean = false;
 
   constructor() {
   }
