@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {debounceTime} from "rxjs/operators";
+import {ConfigurationService} from "../../services/configuration.service";
 
 @Component({
   selector: 'app-starting-modal',
@@ -11,78 +12,49 @@ export class StartingModalComponent implements OnInit {
   @Output() closeModalEmitter: EventEmitter<void> = new EventEmitter<void>();
 
   //sliderConfiuration
-  maxSlider: number = 3;
-  minSlider: number = 1;
-  sliderCounter: number = 1;
+  maxSlide: number = 3;
+  minSlide: number = 1;
+  slideCounter: number = 1;
 
-  //Starting money selection
-  startingMoney: number[] = [1500, 2000, 2500, 3000];
 
-  //Available colors
-  playerColors: { name: string, value: string }[] = [
-    {
-      name: 'Blu',
-      value: 'blue'
-    },
-    {
-      name: 'Verde',
-      value: 'green'
-    },
-    {
-      name: 'Arancio',
-      value: 'orange'
-    },
-    {
-      name: 'Rosso',
-      value: 'Red'
-    }
-  ];
+  playerIcons = this.configService.icons;
+  playerColors = this.configService.colors;
+  matchPresetArray = this.configService.presets;
+  startingMoney = this.configService.money;
 
-  //Available icons
-  playerIcons: { name: string, value: string }[] = [
-    {
-      name: 'Carretto',
-      value: 'fas fa-trailer',
-    },
-    {
-      name: 'Jet',
-      value: 'fas fa-fighter-jet'
-    },
-    {
-      name: 'Cavallo',
-      value: 'fas fa-horse'
-    },
-    {
-      name: 'Auto',
-      value: 'fas fa-car-side'
-    }
-  ]
 
-  //playerCount Selector
+  //playerCount Selector && match preset
   playerCount: FormControl = this.fb.control(0);
 
   //Player configuration form
-  playersConfiguration: FormGroup;
+  gameConfiguration: FormGroup;
 
 
-  constructor(private fb: FormBuilder) {
-    this.playersConfiguration = fb.group({
+  constructor(private fb: FormBuilder, private configService: ConfigurationService) {
+    this.gameConfiguration = fb.group({
       players: fb.array([]),
       matchConfig: fb.group({
-        startMoney: fb.control(''),
-
+        preset: fb.control('easy', Validators.required),
+        startingMoney: fb.control('2500', Validators.required)
       })
     });
-    this.playersConfiguration.valueChanges.pipe(debounceTime(400)).forEach((value) => console.log(value));
+    this.gameConfiguration.valueChanges.pipe(debounceTime(400)).forEach((value) => console.log(value));
   }
 
   get players(): FormArray {
-    return this.playersConfiguration.get('players') as FormArray
+    return this.gameConfiguration.get('players') as FormArray
+  }
+
+  get matchConfig(): FormGroup {
+    return this.gameConfiguration.get('matchConfig') as FormGroup
   }
 
   ngOnInit(): void {
     this.playerCount.valueChanges.forEach((value) => {
       this.addOrRemovePlayers(value);
+    });
+    (this.matchConfig.get('preset') as FormControl).valueChanges.forEach((value) => {
+      this.populateMatchConfig(value);
     });
     this.playerCount.patchValue(2);
   }
@@ -118,6 +90,12 @@ export class StartingModalComponent implements OnInit {
     }
   }
 
+  populateMatchConfig(key: string): void {
+    console.log(key, 'key');
+    const index = this.matchPresetArray.findIndex((preset) => preset.key === key);
+    (this.matchConfig.get('startingMoney') as FormControl).patchValue(this.matchPresetArray[index].startingMoney);
+  }
+
 
   /**
    * Emit the event to close the starting game modal
@@ -127,14 +105,14 @@ export class StartingModalComponent implements OnInit {
   }
 
   sliderForward(): void {
-    if ((this.sliderCounter < this.maxSlider)) {
-      this.sliderCounter++;
+    if ((this.slideCounter < this.maxSlide)) {
+      this.slideCounter++;
     }
   }
 
   sliderBack(): void {
-    if (this.sliderCounter > this.minSlider) {
-      this.sliderCounter--;
+    if (this.slideCounter > this.minSlide) {
+      this.slideCounter--;
     }
   }
 

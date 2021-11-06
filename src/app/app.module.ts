@@ -8,13 +8,15 @@ import {MainMenuComponent} from './features/main-menu/components/main-menu/main-
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {StartingModalComponent} from './features/main-menu/components/starting-modal/starting-modal.component';
 import {StoreModule} from "@ngrx/store";
+import { PlayerBannerComponent } from './shared/components/player-banner/player-banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableBoardComponent,
     MainMenuComponent,
-    StartingModalComponent
+    StartingModalComponent,
+    PlayerBannerComponent
   ],
   imports: [
     BrowserModule,

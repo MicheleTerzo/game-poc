@@ -5,10 +5,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6 d-flex justify-content-start align-items-center">
-          <h5>Modifica le impostazioni della partita</h5>
+          <h5 *ngIf="slideCounter === 1">Personalizza i giocatori</h5>
+          <h5 *ngIf="slideCounter === 2">Modifica le impostazioni della partita</h5>
+          <h5 *ngIf="slideCounter === 3">Controlla le tue scelte</h5>
         </div>
         <div class="col-6 d-flex justify-content-end align-items-center">
-          <i class="fas fa-times-circle fa-2x" (click)="closeModal()"></i>
+          <i (click)="closeModal()" class="fas fa-times-circle fa-2x"></i>
         </div>
       </div>
     </div>
@@ -17,15 +19,16 @@
   <!--  DIALOG CONTENT-->
   <div class="dialog-content">
 
-    <div class="slider" *ngIf="sliderCounter === 1">
-      <form action="" [formGroup]="playersConfiguration">
+    <!--  SLIDE 1-->
+    <div *ngIf="slideCounter === 1" class="slider">
+      <form [formGroup]="gameConfiguration" action="">
         <div class="container-fluid">
           <div class="row">
             <div class="col-4">
               Seleziona il numero di giocatori.
               <div class="player-selection">
-                <select name="playerCount" id="playerCount"
-                        [formControl]="playerCount">
+                <select [formControl]="playerCount" id="playerCount"
+                        name="playerCount">
                   <option value="2">2 Giocatori</option>
                   <option value="3">3 Giocatori</option>
                   <option value="4">4 Giocatori</option>
@@ -45,18 +48,18 @@
 
                       <!--PlAYER NAME-->
                       <div class="player-customization-name">
-                        <label for="playerName-{{i}}" class="me-3">Nome</label>
-                        <input type="text" id="playerName-{{i}}" formControlName="name">
+                        <label class="me-3" for="playerName-{{i}}">Nome</label>
+                        <input formControlName="name" id="playerName-{{i}}" type="text">
                       </div>
 
                       <!--PLAYER COLOR-->
                       <div class="player-customization-color">
-                        <label for="colorSelect-{{i}}"
-                               class="me-3">Colore</label>
-                        <select name="" id="colorSelect-{{i}}" formControlName="color">
+                        <label class="me-3"
+                               for="colorSelect-{{i}}">Colore</label>
+                        <select formControlName="color" id="colorSelect-{{i}}" name="">
                           <option
-                            [value]="color.value"
-                            *ngFor="let color of playerColors">
+                            *ngFor="let color of playerColors"
+                            [value]="color.value">
                             {{color.name}}
                           </option>
                         </select>
@@ -64,12 +67,12 @@
 
                       <!--PLAYER-ICON-->
                       <div class="player-customization-icon">
-                        <label for="iconSelect-{{i}}"
-                               class="me-3">Icona</label>
-                        <select name="" id="iconSelect-{{i}}" formControlName="icon">
+                        <label class="me-3"
+                               for="iconSelect-{{i}}">Icona</label>
+                        <select formControlName="icon" id="iconSelect-{{i}}" name="">
                           <option
-                            [value]="icon.value"
-                            *ngFor="let icon of playerIcons">
+                            *ngFor="let icon of playerIcons"
+                            [value]="icon.value">
                             {{icon.name}}
                           </option>
                         </select>
@@ -77,8 +80,8 @@
                     </div>
                     <div class="player-customization-display">
                       <span class="me-2"><strong>{{players.value[i].name}}</strong></span>
-                      <i [class]="players.value[i].icon" class="fa-3x"
-                         [style.color]="players.value[i].color "></i>
+                      <i [class]="players.value[i].icon" [style.color]="players.value[i].color "
+                         class="fa-3x"></i>
                     </div>
                   </div>
                 </ng-container>
@@ -88,27 +91,58 @@
         </div>
       </form>
     </div>
-
-    <div class="slider" *ngIf="sliderCounter === 2">
-      <form action="" [formGroup]="playersConfiguration">
+    <!--  SLIDE 2-->
+    <div *ngIf="slideCounter === 2" class="slider">
+      <form [formGroup]="gameConfiguration" action="">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-6 d-flex justify-content-center align-items-start flex-column" formGroupName="matchConfig">
-              <strong>Seleziona il bilancio di partenza</strong>
-              <select name="" id="" formControlName="startMoney">
-                <option value="" *ngFor="let money of startingMoney">{{money}}</option>
+          <div class="row mt-2" formGroupName="matchConfig">
+            <div class="col-6  d-flex justify-content-center align-items-start flex-column">
+              <strong>Seleziona la difficoltà</strong>
+              <select
+                class="mt-2"
+                formControlName="preset"
+                id="preset">
+                <option
+                  *ngFor="let preset of matchPresetArray"
+                  [value]="preset.key">
+                  {{preset.displayName}}
+                </option>
               </select>
             </div>
-            <div class="col-6">
-
+            <div class="col-6  d-flex justify-content-center align-items-start flex-column">
+              <strong>Bilancio di partenza</strong>
+              <select *ngIf="matchConfig.get('preset')?.value === 'custom'"
+                      class="mt-2"
+                      formControlName="startingMoney"
+                      id="money">
+                <option
+                  *ngFor="let money of startingMoney"
+                  [value]="money">
+                  {{money}}
+                </option>
+              </select>
+              <p *ngIf="matchConfig.get('preset')?.value !== 'custom'"> {{matchConfig.get('startingMoney')?.value}}</p>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-12">
+              <p style="color: red">Ulteriori mpostazioni non sono disponibili in questa versione del gioco.</p>
             </div>
           </div>
         </div>
       </form>
-    </div>
 
-    <div class="slider" *ngIf="sliderCounter === 3">
-      Slider 3
+    </div>
+    <!--  SLIDE 3-->
+    <div *ngIf="slideCounter === 3" class="slider">
+      <div class="container-fluid">
+        <div class="row">
+          <div *ngFor="let player of players.controls; let i = index;" class="col-12">
+            <app-player-banner [money]="matchConfig.controls.startingMoney?.value"
+                               [playerConfig]="player.value"></app-player-banner>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -118,10 +152,18 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6 d-flex justify-content-start align-items-center">
-          <i class="fas fa-arrow-left fa-2x" (click)="sliderBack()"></i>
+          <i (click)="sliderBack()"
+             *ngIf="slideCounter !== minSlide"
+             class="fas fa-arrow-left fa-2x"
+          ></i>
         </div>
-        <div class="col-6 d-flex justify-content-end align-items-center">
-          <i class="fas fa-arrow-right fa-2x" (click)="sliderForward()"></i>
+        <div *ngIf="slideCounter !== maxSlide" class="col-6 d-flex justify-content-end align-items-center">
+          <i (click)="sliderForward()"
+             class="fas fa-arrow-right fa-2x"
+          ></i>
+        </div>
+        <div *ngIf="slideCounter === maxSlide" class="col-6 d-flex justify-content-end align-items-center">
+          <button [disabled]="!gameConfiguration.valid">AVVIA LA PARTITA</button>
         </div>
       </div>
     </div>

@@ -1,0 +1,18 @@
+<div class="container-fluid player-banner">
+  <div class="row">
+    <div [style.color]="playerConfig.color" class="col-3 d-flex justify-content-center align-items-center">
+      <i *ngIf="playerConfig.icon !== ''" [class]="playerConfig.icon" class="fa-2x"></i>
+      <i *ngIf="playerConfig.icon === ''" class="fas fa-question"></i>
+    </div>
+    <div class="col-4 d-flex justify-content-center align-items-center">
+      <strong *ngIf="playerConfig.name !== ''">{{playerConfig.name}}</strong>
+      <i *ngIf="playerConfig.name === ''" class="fas fa-question"></i>
+    </div>
+    <div class="col-3 d-flex justify-content-center align-items-center">
+      Bilancio: {{money}}
+    </div>
+    <div *ngIf="properties.length > 0" class="col-1 d-flex justify-content-center align-items-center">
+      Proprietà: menù proprietà
+    </div>
+  </div>
+</div>
