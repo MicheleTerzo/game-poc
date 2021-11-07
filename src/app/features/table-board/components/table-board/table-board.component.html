@@ -1,9 +1,55 @@
-<div class="table d-flex justify-content-center align-items-center p-5">
-  <div class="board">
-    <div class="board-row" *ngFor="let tiles of board">
-      <div class="property" *ngFor="let tile of tiles; let i = index" [class]="tile.style?.class" [style.border-bottom-color]="tile.style?.color">
-        <div>{{tile.name}}</div>
-        <div>{{tile.id}}</div>
+<!--<div class="table d-flex justify-content-center align-items-center p-5">-->
+<!--  <div class="board">-->
+<!--    <div class="board-row" *ngFor="let tiles of board">-->
+<!--      <div class="property" *ngFor="let tile of tiles; let i = index" [class]="tile.style?.class">-->
+<!--        <div class="color" [style.background]="tile.style?.color"></div>-->
+<!--        <div>{{tile.name}}</div>-->
+<!--        <div>{{tile.id}}</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <div class="table">
+        <div class="board-row-extreme debug-green d-flex">
+          <div class="tile-row-1 " *ngFor="let tile of board[0]">
+            {{tile.name}}
+          </div>
+        </div>
+        <div class="board-row debug-green">
+          <div class="tile-row-2 " *ngFor="let tile of board[1]">
+            {{tile.name}}
+          </div>
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row debug-green">
+
+        </div>
+        <div class="board-row-extreme debug-green">
+
+        </div>
       </div>
     </div>
   </div>
