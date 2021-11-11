@@ -3,12 +3,15 @@ export const ClassicBoard: any[] = [
     {
       id: 21,
       tag: 'parking',
-      name: 'Parcheggio'
+      name: 'Parcheggio',
+      style: {
+        class: 'corner-tile corner-tile-top-left'
+      }
     },
     {
       id: 22,
       name: 'Via Marco Polo',
-      tag: 'expensive_1',
+      tag: 'property',
       generalPrices: {
         buyPrice: 220,
         housePrice: 150,
@@ -26,18 +29,22 @@ export const ClassicBoard: any[] = [
         hotel: 1050,
       },
       style: {
-        color: 'red'
+        color: 'red',
+        class: 'normal-tile normal-tile-top'
       }
     },
     {
       id: 23,
       tag: 'unex',
       name: 'Imprevisti',
+      style: {
+        class: 'normal-tile normal-tile-top'
+      }
     },
     {
       id: 24,
       name: 'Corso Magellano',
-      tag: 'expensive_1',
+      tag: 'property',
       generalPrices: {
         buyPrice: 220,
         housePrice: 150,
@@ -55,13 +62,14 @@ export const ClassicBoard: any[] = [
         hotel: 1050,
       },
       style: {
-        color: 'red'
+        color: 'red',
+        class: 'normal-tile normal-tile-top'
       }
     },
     {
       id: 25,
       name: 'Largo Colombo',
-      tag: 'expensive_1',
+      tag: 'property',
       generalPrices: {
         buyPrice: 240,
         housePrice: 150,
@@ -79,12 +87,13 @@ export const ClassicBoard: any[] = [
         hotel: 1100,
       },
       style: {
-        color: 'red'
+        color: 'red',
+        class: 'normal-tile normal-tile-top'
       }
     },
     {
       id: 26,
-      tag: 'stazione',
+      tag: 'station',
       name: 'Stazione Nord',
       generalPrices: {
         buyPrice: 200,
@@ -97,11 +106,14 @@ export const ClassicBoard: any[] = [
         threeStation: 150,
         fourStation: 200,
       },
+      style: {
+        class: 'normal-tile normal-tile-top'
+      }
     },
     {
       id: 27,
       name: 'Viale Costantino',
-      tag: 'expensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 260,
         housePrice: 150,
@@ -119,13 +131,14 @@ export const ClassicBoard: any[] = [
         hotel: 1150,
       },
       style: {
-        color: 'yellow'
+        color: 'yellow',
+        class: 'normal-tile normal-tile-top'
       }
     },
     {
       id: 28,
       name: 'Viale Traiano',
-      tag: 'expensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 260,
         housePrice: 150,
@@ -143,7 +156,8 @@ export const ClassicBoard: any[] = [
         hotel: 1150,
       },
       style: {
-        color: 'yellow'
+        color: 'yellow',
+        class: 'normal-tile normal-tile-top'
       }
     },
     {
@@ -159,11 +173,14 @@ export const ClassicBoard: any[] = [
         baseMultiplier: 4,
         allMultiplier: 10,
       },
+      style: {
+        class: 'normal-tile normal-tile-top'
+      }
     },
     {
       id: 30,
       name: 'Piazza Giulio Cesare',
-      tag: 'expensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 280,
         housePrice: 150,
@@ -181,20 +198,24 @@ export const ClassicBoard: any[] = [
         hotel: 1200,
       },
       style: {
-        color: 'yellow'
+        color: 'yellow',
+        class: 'normal-tile normal-tile-top'
       }
     },
     {
-      id:31,
+      id: 31,
       tag: 'goToPrison',
-      name: 'Vai in prigione'
+      name: 'Vai in prigione',
+      style: {
+        class: 'corner-tile corner-tile-top-right'
+      }
     },
   ],
   [
     {
       id: 20,
-      name: 'Piazza DAnte',
-      tag: 'medium_2',
+      name: 'Piazza Dante',
+      tag: 'property',
       generalPrices: {
         buyPrice: 200,
         housePrice: 100,
@@ -212,13 +233,14 @@ export const ClassicBoard: any[] = [
         hotel: 1000,
       },
       style: {
-        color: 'orange'
+        color: 'orange',
+        class: 'normal-tile normal-tile-left'
       }
     },
     {
       id: 32,
       name: 'Via Roma',
-      tag: 'veryExpensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 300,
         housePrice: 200,
@@ -237,7 +259,7 @@ export const ClassicBoard: any[] = [
       },
       style: {
         color: 'green',
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     },
   ],
@@ -245,7 +267,7 @@ export const ClassicBoard: any[] = [
     {
       id: 19,
       name: 'Corso Raffaello',
-      tag: 'medium_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 180,
         housePrice: 100,
@@ -263,13 +285,14 @@ export const ClassicBoard: any[] = [
         hotel: 950,
       },
       style: {
-        color: 'orange'
+        color: 'orange',
+        class: 'normal-tile normal-tile-left'
       }
     },
     {
       id: 33,
       name: 'Corso Impero',
-      tag: 'veryExpensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 300,
         housePrice: 200,
@@ -288,7 +311,7 @@ export const ClassicBoard: any[] = [
       },
       style: {
         color: 'green',
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right',
       }
     },
   ],
@@ -296,14 +319,17 @@ export const ClassicBoard: any[] = [
     {
       id: 18,
       tag: 'prob',
-      name: 'Probabilità'
+      name: 'Probabilità',
+      style: {
+        class: 'normal-tile normal-tile-left'
+      }
     },
     {
       id: 34,
       tag: 'prob',
       name: 'Probabilità',
       style: {
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     },
   ],
@@ -311,7 +337,7 @@ export const ClassicBoard: any[] = [
     {
       id: 17,
       name: 'Via Verdì',
-      tag: 'medium_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 180,
         housePrice: 100,
@@ -329,13 +355,14 @@ export const ClassicBoard: any[] = [
         hotel: 950,
       },
       style: {
-        color: 'orange'
+        color: 'orange',
+        class: 'normal-tile normal-tile-left'
       }
     },
     {
       id: 35,
       name: 'Largo Augusto',
-      tag: 'veryExpensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 320,
         housePrice: 200,
@@ -354,7 +381,7 @@ export const ClassicBoard: any[] = [
       },
       style: {
         color: 'green',
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     },
 
@@ -362,7 +389,7 @@ export const ClassicBoard: any[] = [
   [
     {
       id: 16,
-      tag: 'stazione',
+      tag: 'station',
       name: 'Stazione Ovest',
       generalPrices: {
         buyPrice: 200,
@@ -375,10 +402,13 @@ export const ClassicBoard: any[] = [
         threeStation: 150,
         fourStation: 200,
       },
+      style: {
+        class: 'normal-tile normal-tile-left'
+      }
     },
     {
       id: 36,
-      tag: 'stazione',
+      tag: 'station',
       name: 'Stazione Est',
       generalPrices: {
         buyPrice: 200,
@@ -392,7 +422,7 @@ export const ClassicBoard: any[] = [
         fourStation: 200,
       },
       style: {
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     },
   ],
@@ -400,7 +430,7 @@ export const ClassicBoard: any[] = [
     {
       id: 15,
       name: 'Piazza Università',
-      tag: 'medium_1',
+      tag: 'property',
       generalPrices: {
         buyPrice: 160,
         housePrice: 100,
@@ -418,7 +448,8 @@ export const ClassicBoard: any[] = [
         hotel: 900,
       },
       style: {
-        color: 'pink'
+        color: 'pink',
+        class: 'normal-tile normal-tile-left'
       }
     },
     {
@@ -426,7 +457,7 @@ export const ClassicBoard: any[] = [
       tag: 'unex',
       name: 'Imprevisti',
       style: {
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     },
   ],
@@ -434,7 +465,7 @@ export const ClassicBoard: any[] = [
     {
       id: 14,
       name: 'Corso Ateneo',
-      tag: 'medium_1',
+      tag: 'property',
       generalPrices: {
         buyPrice: 140,
         housePrice: 100,
@@ -452,13 +483,14 @@ export const ClassicBoard: any[] = [
         hotel: 750,
       },
       style: {
-        color: 'pink'
+        color: 'pink',
+        class: 'normal-tile normal-tile-left'
       }
     },
     {
       id: 38,
       name: 'Viale Dei Giardini',
-      tag: 'veryExpensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 350,
         housePrice: 200,
@@ -477,7 +509,7 @@ export const ClassicBoard: any[] = [
       },
       style: {
         color: 'blue',
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     }
   ],
@@ -495,13 +527,16 @@ export const ClassicBoard: any[] = [
         baseMultiplier: 4,
         allMultiplier: 10,
       },
+      style: {
+        class: 'normal-tile normal-tile-left'
+      }
     },
     {
       id: 39,
       tag: 'tax',
       name: 'Tassa di Lusso',
       style: {
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     }
   ],
@@ -509,7 +544,7 @@ export const ClassicBoard: any[] = [
     {
       id: 12,
       name: 'Via Accademia',
-      tag: 'medium_1',
+      tag: 'property',
       generalPrices: {
         buyPrice: 140,
         housePrice: 100,
@@ -527,13 +562,14 @@ export const ClassicBoard: any[] = [
         hotel: 750,
       },
       style: {
-        color: 'pink'
+        color: 'pink',
+        class: 'normal-tile normal-tile-left'
       }
     },
     {
       id: 40,
       name: 'Parco Della Vittoria',
-      tag: 'veryExpensive_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 400,
         housePrice: 200,
@@ -552,7 +588,7 @@ export const ClassicBoard: any[] = [
       },
       style: {
         color: 'blue',
-        class: 'property-right'
+        class: 'normal-tile normal-tile-right'
       }
     }
   ],
@@ -560,12 +596,15 @@ export const ClassicBoard: any[] = [
     {
       id: 11,
       tag: 'prison',
-      name: 'Prigione'
+      name: 'Prigione',
+      style: {
+        class: 'corner-tile corner-tile-bottom-left'
+      }
     },
     {
       id: 10,
       name: 'Viale Vesuvio',
-      tag: 'cheap_2',
+      tag: 'property',
       generalPrices: {
         buyPrice: 120,
         housePrice: 50,
@@ -583,12 +622,13 @@ export const ClassicBoard: any[] = [
         hotel: 600,
       },
       style: {
-        color: 'lightblue'
+        color: 'lightblue',
+        class: 'normal-tile normal-tile-bottom'
       }
     },
     {
       id: 9,
-      tag: 'cheap_2',
+      tag: 'property',
       name: 'Viale Monterosa',
       generalPrices: {
         buyPrice: 100,
@@ -607,17 +647,21 @@ export const ClassicBoard: any[] = [
         hotel: 550,
       },
       style: {
-        color: 'lightblue'
+        color: 'lightblue',
+        class: 'normal-tile normal-tile-bottom'
       }
     },
     {
       id: 8,
       tag: 'unex',
-      name: 'Imprevisti'
+      name: 'Imprevisti',
+      style: {
+        class: 'normal-tile normal-tile-bottom'
+      }
     },
     {
       id: 7,
-      tag: 'cheap_2',
+      tag: 'property',
       name: 'Bastioni Gran Sasso',
       generalPrices: {
         buyPrice: 100,
@@ -636,12 +680,13 @@ export const ClassicBoard: any[] = [
         hotel: 550,
       },
       style: {
-        color: 'lightblue'
+        color: 'lightblue',
+        class: 'normal-tile normal-tile-bottom'
       }
     },
     {
       id: 6,
-      tag: 'stazione',
+      tag: 'station',
       name: 'Stazione Sud',
       generalPrices: {
         buyPrice: 200,
@@ -654,15 +699,21 @@ export const ClassicBoard: any[] = [
         threeStation: 150,
         fourStation: 200,
       },
+      style: {
+        class: 'normal-tile normal-tile-bottom'
+      }
     },
     {
       id: 5,
       tag: 'tax',
-      name: 'Tassa patrimoniale'
+      name: 'Tassa patrimoniale',
+      style: {
+        class: 'normal-tile normal-tile-bottom'
+      }
     },
     {
       id: 4,
-      tag: 'cheap_1',
+      tag: 'property',
       name: 'Vicolo Stretto',
       generalPrices: {
         buyPrice: 60,
@@ -681,17 +732,21 @@ export const ClassicBoard: any[] = [
         hotel: 450,
       },
       style: {
-        color: 'brown'
+        color: 'brown',
+        class: 'normal-tile normal-tile-bottom'
       }
     },
     {
       id: 3,
       tag: 'prob',
-      name: 'Probabilità'
+      name: 'Probabilità',
+      style: {
+        class: 'normal-tile normal-tile-bottom'
+      }
     },
     {
       id: 2,
-      tag: 'cheap_1',
+      tag: 'property',
       name: 'Vicolo Corto',
       generalPrices: {
         buyPrice: 60,
@@ -710,13 +765,17 @@ export const ClassicBoard: any[] = [
         hotel: 250,
       },
       style: {
-        color: 'brown'
+        color: 'brown',
+        class: 'normal-tile normal-tile-bottom'
       }
     },
     {
       id: 1,
       tag: 'start',
-      name: 'VIA'
+      name: 'VIA',
+      style: {
+        class: 'corner-tile corner-tile-bottom-right'
+      }
     }
   ]
 ]

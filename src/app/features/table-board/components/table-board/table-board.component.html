@@ -1,56 +1,116 @@
-<!--<div class="table d-flex justify-content-center align-items-center p-5">-->
-<!--  <div class="board">-->
-<!--    <div class="board-row" *ngFor="let tiles of board">-->
-<!--      <div class="property" *ngFor="let tile of tiles; let i = index" [class]="tile.style?.class">-->
-<!--        <div class="color" [style.background]="tile.style?.color"></div>-->
-<!--        <div>{{tile.name}}</div>-->
-<!--        <div>{{tile.id}}</div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 <div class="container-fluid">
   <div class="row">
+    <div class="col-12">
+      <h1>MONOPOLI</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset-3 col-6 d-flex justify-content-between align-items-center">
+      <button (click)="rotateBoardLeft()">Gira sinistra</button>
+      <button (click)="rotateBoardRight()"> Gira destra</button>
+
+    </div>
+  </div>
+
+  <!--BOARD DI GIOCO-->
+  <div class="row">
     <div class="col-12 d-flex justify-content-center align-items-center">
-      <div class="table">
-        <div class="board-row-extreme debug-green d-flex">
-          <div class="tile-row-1 " *ngFor="let tile of board[0]">
-            {{tile.name}}
+      <div class="game-table" [style.rotate]="tableRotation">
+        <div *ngFor="let row of board;" class="board-row d-flex justify-content-between">
+          <div *ngFor="let tile of row" [class]="tile.style?.class">
+
+            <!--VAI IN PRIGIONE-->
+            <div *ngIf="tile.style?.class === 'corner-tile corner-tile-top-right'">
+              <div class="tile-content tile-content-corner-top-right debug">
+                {{tile.name}}
+              </div>
+            </div>
+
+            <!--PARCHEGGIO-->
+            <div *ngIf="tile.style?.class === 'corner-tile corner-tile-top-left'">
+              <div class="tile-content tile-content-corner-top-left">
+                {{tile.name}}
+              </div>
+            </div>
+
+            <!--PRIGIONE-->
+            <div *ngIf="tile.style?.class === 'corner-tile corner-tile-bottom-left'">
+              <div class="tile-content tile-content-corner-bottom-left">
+                {{tile.name}}
+              </div>
+            </div>
+
+            <!--VIA-->
+            <div *ngIf="tile.style?.class === 'corner-tile corner-tile-bottom-right'">
+              <div class="tile-content tile-content-corner-bottom-right">
+                {{tile.name}}
+              </div>
+            </div>
+
+            <!--SOTTO-->
+            <div *ngIf="tile.style?.class === 'normal-tile normal-tile-bottom'"
+                 class=" d-flex justify-content-between align-items-center flex-column"
+                 style="width: 100%; height: 100%">
+              <div [style.background]="tile.style?.color" class="tile-color"></div>
+              <div class="tile-content tile-content-bottom">
+                {{tile.name}}
+                <span *ngIf="tile.tag === 'property' || tile.tag === 'company' || tile.tag === 'station'"
+                      class="buy-price">
+                  {{tile.generalPrices.buyPrice}}
+                </span>
+              </div>
+            </div>
+
+            <!--SOPRA-->
+            <div *ngIf="tile.style?.class === 'normal-tile normal-tile-top'"
+                 class="d-flex justify-content-between align-items-center flex-column"
+                 style="width: 100%; height: 100%">
+              <div class="tile-content tile-content-top">
+                {{tile.name}}
+                <span *ngIf="tile.tag === 'property' || tile.tag === 'company' || tile.tag === 'station'"
+                      class="buy-price">
+                  {{tile.generalPrices.buyPrice}}
+                </span>
+              </div>
+              <div [style.background]="tile.style?.color" class="tile-color"></div>
+            </div>
+
+            <!--DESTRA-->
+            <div *ngIf="tile.style?.class === 'normal-tile normal-tile-right'"
+                 class="d-flex justify-content-between align-items-center"
+                 style="width: 100%; height: 100%">
+              <div [style.background]="tile.style?.color" class="tile-color"></div>
+              <div class="tile-content tile-content-right">
+                {{tile.name}}
+                <span *ngIf="tile.tag === 'property' || tile.tag === 'company' || tile.tag === 'station'"
+                      class="buy-price">
+                  {{tile.generalPrices.buyPrice}}
+                </span>
+              </div>
+            </div>
+
+            <!--SINISTRA-->
+            <div *ngIf="tile.style?.class === 'normal-tile normal-tile-left'"
+                 class="d-flex justify-content-between align-items-center"
+                 style="width: 100%; height: 100%">
+              <div class="tile-content tile-content-left">
+                {{tile.name}}
+                <span *ngIf="tile.tag === 'property' || tile.tag === 'company' || tile.tag === 'station'"
+                      class="buy-price">
+                  {{tile.generalPrices.buyPrice}}
+                </span>
+              </div>
+              <div [style.background]="tile.style?.color" class="tile-color"></div>
+            </div>
           </div>
-        </div>
-        <div class="board-row debug-green">
-          <div class="tile-row-2 " *ngFor="let tile of board[1]">
-            {{tile.name}}
-          </div>
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row debug-green">
-
-        </div>
-        <div class="board-row-extreme debug-green">
-
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1>FOOTER</h1>
     </div>
   </div>
 </div>
