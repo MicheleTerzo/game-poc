@@ -10,7 +10,9 @@
           <h5 *ngIf="slideCounter === 3">Controlla le tue scelte</h5>
         </div>
         <div class="col-6 d-flex justify-content-end align-items-center">
-          <i (click)="closeModal()" class="fas fa-times-circle fa-2x"></i>
+          <button (click)="closeModal()" close-icon-btn>
+            <i class="fas fa-times"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -152,18 +154,26 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6 d-flex justify-content-start align-items-center">
-          <i (click)="sliderBack()"
-             *ngIf="slideCounter !== minSlide"
-             class="fas fa-arrow-left fa-2x"
-          ></i>
+          <button (click)="sliderBack()"
+                  *ngIf="slideCounter !== minSlide"
+                  color="primary"
+                  main-icon-btn>
+            <i class="fas fa-arrow-left"
+            ></i>
+          </button>
         </div>
         <div *ngIf="slideCounter !== maxSlide" class="col-6 d-flex justify-content-end align-items-center">
-          <i (click)="sliderForward()"
-             class="fas fa-arrow-right fa-2x"
-          ></i>
+          <button
+            (click)="sliderForward()"
+            color="primary"
+            main-icon-btn>
+            <i
+              class="fas fa-arrow-right"
+            ></i>
+          </button>
         </div>
         <div *ngIf="slideCounter === maxSlide" class="col-6 d-flex justify-content-end align-items-center">
-          <button [disabled]="!gameConfiguration.valid">AVVIA LA PARTITA</button>
+          <button [disabled]="!gameConfiguration.valid" color="secondary" main-btn>AVVIA LA PARTITA</button>
         </div>
       </div>
     </div>

@@ -1,13 +1,106 @@
 .main-button {
-  border-radius: 8px;
-  background: var(--primary-color);
-  padding: 10px 15px;
-  color: white;
+  border-radius: var(--buttons-border-radius);
+  padding: var(--buttons-padding);
   border: none;
-  transition: 200ms all ease-in-out;
+  transition: var(--buttons-transition);
+  box-shadow: var(--buttons-box-shadow);
+  cursor: pointer;
 
-  &:hover {
+  &-primary {
+    background: var(--primary-color);
+    color: #FFF;
+
+    &:active {
+      background: var(--primary-darker-color);
+      box-shadow: var(--buttons-active-box-shadow);
+    }
+  }
+
+  &-secondary {
     background: var(--secondary-color);
-    box-shadow: 0 0 8px 4px var(--light-black-color);
+    color: #FFF;
+
+    &:active {
+      background: var(--secondary-darker-color);
+      box-shadow: var(--buttons-active-box-shadow);
+    }
+  }
+
+  &-tertiary {
+    background: var(--tertiary-color);
+    color: #FFF;
+
+    &:active {
+      background: var(--tertiary-darker-color);
+      box-shadow: var(--buttons-active-box-shadow);
+    }
+  }
+}
+
+
+.main-icon-button {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: none;
+  transition: var(--buttons-transition);
+  box-shadow: var(--buttons-box-shadow);
+  cursor: pointer;
+
+  &-primary {
+    background: var(--primary-color);
+    color: #FFF;
+
+    &:active {
+      background: var(--primary-darker-color);
+      box-shadow: var(--buttons-active-box-shadow);
+    }
+  }
+
+  &-secondary {
+    background: var(--secondary-color);
+    color: #FFF;
+
+    &:active {
+      background: var(--secondary-darker-color);
+      box-shadow: var(--buttons-active-box-shadow);
+    }
+  }
+
+  &-tertiary {
+    background: var(--tertiary-color);
+    color: #FFF;
+
+    &:active {
+      background: var(--tertiary-darker-color);
+      box-shadow: var(--buttons-active-box-shadow);
+    }
+  }
+}
+
+.close-icon-button {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  border: none;
+  transition: var(--buttons-transition);
+  background: var(--alert-color);
+  color: #FFF;
+  box-shadow: var(--buttons-box-shadow);
+  cursor: pointer;
+
+  &:active {
+    background: var(--alert-darker-color);
+    box-shadow: var(--buttons-active-box-shadow);
   }
 }

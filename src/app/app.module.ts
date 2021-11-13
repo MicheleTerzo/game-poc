@@ -8,13 +8,14 @@ import {MainMenuComponent} from './features/main-menu/components/main-menu/main-
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {StartingModalComponent} from './features/main-menu/components/starting-modal/starting-modal.component';
 import {StoreModule} from "@ngrx/store";
-import { PlayerBannerComponent } from './shared/components/player-banner/player-banner.component';
-import { CardDetailComponent } from './features/table-board/components/card-detail/card-detail.component';
-import { PropertyCardComponent } from './features/table-board/components/property-card/property-card.component';
-import { CompanyCardComponent } from './features/table-board/components/company-card/company-card.component';
-import { StationCardComponent } from './features/table-board/components/station-card/station-card.component';
-import { TestingComponent } from './features/testing/testing/testing.component';
-import { MainButtonDirective } from './directives/main-button.directive';
+import {PlayerBannerComponent} from './shared/components/player-banner/player-banner.component';
+import {CardDetailComponent} from './features/table-board/components/card-detail/card-detail.component';
+import {PropertyCardComponent} from './features/table-board/components/property-card/property-card.component';
+import {CompanyCardComponent} from './features/table-board/components/company-card/company-card.component';
+import {StationCardComponent} from './features/table-board/components/station-card/station-card.component';
+import {TestingComponent} from './features/testing/testing/testing.component';
+import {CloseIconButtonDirective, MainButtonDirective, MainIconButtonDirective,} from './directives/buttons.directive';
+import { CustomDialogDirective } from './directives/custom-dialog.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,11 @@ import { MainButtonDirective } from './directives/main-button.directive';
     CompanyCardComponent,
     StationCardComponent,
     TestingComponent,
-    MainButtonDirective
+    MainButtonDirective,
+
+    MainIconButtonDirective,
+    CloseIconButtonDirective,
+    CustomDialogDirective
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { MainButtonDirective } from './main-button.directive';
+import { MainButtonDirective } from './buttons.directive';
 
 describe('ButtonsDirective', () => {
   it('should create an instance', () => {
