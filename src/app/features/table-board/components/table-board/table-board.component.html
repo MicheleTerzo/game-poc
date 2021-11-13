@@ -1,15 +1,16 @@
-<div class="container-fluid">
+<div class="container-fluid" id="main-container">
+
   <div class="row">
     <div class="col-12">
       <h1>MONOPOLI</h1>
     </div>
   </div>
 
+
   <div class="row">
     <div class="offset-3 col-6 d-flex justify-content-between align-items-center">
       <button (click)="rotateBoardLeft()">Gira sinistra</button>
       <button (click)="rotateBoardRight()"> Gira destra</button>
-
     </div>
   </div>
 
@@ -108,13 +109,16 @@
             </div>
           </div>
         </div>
-        <app-card-detail *ngIf="openCardDetail" [cardItem]="cardItem"></app-card-detail>
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-12">
       <h1>FOOTER</h1>
     </div>
   </div>
 </div>
+<app-card-detail (closeDialogEmitter)="closeCardDetailDialog()" *ngIf="openCardDetail"
+                 [cardItemInput]="cardItem">
+</app-card-detail>

@@ -1,0 +1,13 @@
+.main-button {
+  border-radius: 8px;
+  background: var(--primary-color);
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  transition: 200ms all ease-in-out;
+
+  &:hover {
+    background: var(--secondary-color);
+    box-shadow: 0 0 8px 4px var(--light-black-color);
+  }
+}

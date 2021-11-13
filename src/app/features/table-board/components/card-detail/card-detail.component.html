@@ -1,12 +1,14 @@
-<app-property-card></app-property-card>
-
-<div *ngIf="cardItem.tag === 'company'" class="card-company">
-  <div class="card-icon">
-
+<div class="mb-2 close-icon">
+  <i (click)="closeDialog()" class="fas fa-times-circle fa-3x"></i>
+</div>
+<div class="card p-2">
+  <div class="card-body p-2">
+    <app-property-card *ngIf="item.tag === 'property'" [property]="item"
+                       style="width: 100%"></app-property-card>
+    <app-company-card *ngIf="item.tag === 'company'"></app-company-card>
+    <app-station-card *ngIf="item.tag === 'station'"></app-station-card>
   </div>
-  <span class="company-title"></span>
 </div>
 
-<div *ngIf="cardItem.tag === 'station'" class="card-station">
 
-</div>
+

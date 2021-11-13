@@ -35,6 +35,14 @@ export class TableBoardComponent implements OnInit {
   openCardDetailDialog(item: ICompany | IProperty | ITrainStation): void {
     this.cardItem = item;
     this.openCardDetail = true;
+    const element = document.getElementById('main-container');
+    element.classList.add('blur');
+  }
+
+  closeCardDetailDialog(): void {
+    const element = document.getElementById('main-container');
+    element.classList.remove('blur');
+    this.openCardDetail = false;
   }
 
 }

@@ -13,6 +13,8 @@ import { CardDetailComponent } from './features/table-board/components/card-deta
 import { PropertyCardComponent } from './features/table-board/components/property-card/property-card.component';
 import { CompanyCardComponent } from './features/table-board/components/company-card/company-card.component';
 import { StationCardComponent } from './features/table-board/components/station-card/station-card.component';
+import { TestingComponent } from './features/testing/testing/testing.component';
+import { MainButtonDirective } from './directives/main-button.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { StationCardComponent } from './features/table-board/components/station-
     CardDetailComponent,
     PropertyCardComponent,
     CompanyCardComponent,
-    StationCardComponent
+    StationCardComponent,
+    TestingComponent,
+    MainButtonDirective
   ],
   imports: [
     BrowserModule,

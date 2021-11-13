@@ -1,73 +1,115 @@
-<div *ngIf="property.tag === 'property'" class="card-property">
-  <div class="card-property-body">
-    <div [style.background]="property.style.color" class="card-property-title p-3">
-      {{property.name}}
-    </div>
-    <div class="card-property-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            Affitto
-          </div>
-          <div class="col-6">
-            {{property.rentPrices.base}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Affitto per serie completa
-          </div>
-          <div class="col-6">
-            {{property.rentPrices.full}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Affitto con 1
-          </div>
-          <div class="col-6">
-            {{property.rentPrices.oneHouse}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Affitto con 2
-          </div>
-          <div class="col-6">
-            {{property.rentPrices.twoHouse}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Affitto con 3
-          </div>
-          <div class="col-6">
-            {{property.rentPrices.threeHouse}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Affitto con 4
-          </div>
-          <div class="col-6">
-            {{property.rentPrices.fourHouse}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            Affitto con
-          </div>
-          <div class="col-6">
-            {{property.rentPrices.hotel}}
-          </div>
-        </div>
-      </div>
-    </div>
+<div [style.background]="property.style.color"
+     class="title pb-5 pt-5">
+  <h3>{{property.name}}</h3>
+</div>
+<div class="rent">
 
-    <hr>
+  <!--AFFITTO BASE-->
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Affitto
+    </div>
+    <div class="col-4 rent-price">
+      {{property.rentPrices.base}}
+    </div>
+  </div>
 
-    <div class="card-property-bottom">
-      {{property.rentPrices | json}}
+  <!--AFFITTO SERIE COMPLETA-->
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Affitto per serie completa
+    </div>
+    <div class="col-4 rent-price">
+      {{property.rentPrices.full}}
+    </div>
+  </div>
+
+  <!--AFFITTO CON 1 CASE-->
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Affitto con
+    </div>
+    <div class="col-2 rent-icon">
+      <strong>1</strong>
+      <i class="fas fa-home"></i>
+    </div>
+    <div class="col-2 rent-price">
+      {{property.rentPrices.oneHouse}}
+    </div>
+  </div>
+
+  <!--AFFITTO CON 2 CASE-->
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Affitto con
+    </div>
+    <div class="col-2 rent-icon">
+      <strong>2</strong>
+      <i class="fas fa-home"></i>
+    </div>
+    <div class="col-2 rent-price">
+      {{property.rentPrices.twoHouse}}
+    </div>
+  </div>
+
+  <!--AFFITTO CON 3 CASE-->
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Affitto con
+    </div>
+    <div class="col-2 rent-icon">
+      <strong>3</strong>
+      <i class="fas fa-home"></i>
+    </div>
+    <div class="col-2 rent-price">
+      {{property.rentPrices.threeHouse}}
+    </div>
+  </div>
+
+  <!--AFFITTO CON 4 CASE-->
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Affitto con
+    </div>
+    <div class="col-2 rent-icon">
+      <strong>4</strong>
+      <i class="fas fa-home"></i>
+    </div>
+    <div class="col-2 rent-price">
+      {{property.rentPrices.fourHouse}}
+    </div>
+  </div>
+
+  <!--AFFITTO CON ALBERGO-->
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Affitto con
+    </div>
+    <div class="col-2 rent-icon">
+      <i class="fas fa-hotel"></i>
+    </div>
+    <div class="col-2 rent-price">
+      {{property.rentPrices.hotel}}
+    </div>
+  </div>
+
+</div>
+<hr>
+<div class="building-price">
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Costo di ogni casa
+    </div>
+    <div class="col-4 rent-price">
+      {{property.generalPrices.housePrice}}
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-8 rent-description">
+      Costo di un albergo
+    </div>
+    <div class="col-4 rent-price">
+      {{property.generalPrices.hotelPrice}}
     </div>
   </div>
 </div>

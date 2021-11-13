@@ -10,13 +10,39 @@ import {ITrainStation} from "../../../../models/ITrainStation";
 })
 export class CardDetailComponent implements OnInit {
   @Output() closeDialogEmitter: EventEmitter<void> = new EventEmitter<void>();
-  @Input() cardItem: ICompany | IProperty | ITrainStation;
+  @Input() cardItemInput: ICompany | IProperty | ITrainStation;
+  item;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    if (this.cardItemInput) {
+      switch (this.cardItemInput.tag) {
+        case 'property': {
+          this.item = this.cardItemInput as IProperty;
+          break;
+        }
+        case 'company': {
+          this.item = this.cardItemInput as ICompany;
+          break;
+        }
+        case 'station': {
+          this.item = this.cardItemInput as ITrainStation;
+          break;
+        }
+      }
+    }
   }
+
+
+  // listenToClick(): void {
+  //   document.addEventListener('click', (e) => {
+  //     if (!document.getElementById('cardBox').contains(e.target as Node)) {
+  //       this.closeDialog();
+  //     }
+  //   })
+  // }
 
   closeDialog(): void {
     this.closeDialogEmitter.emit();
