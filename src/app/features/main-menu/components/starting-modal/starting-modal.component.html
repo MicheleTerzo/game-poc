@@ -1,30 +1,23 @@
-<div class="dialog-main">
+<div customDialog>
 
   <!--  DIALOG HEADER-->
-  <div class="dialog-header">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-6 d-flex justify-content-start align-items-center">
-          <h5 *ngIf="slideCounter === 1">Personalizza i giocatori</h5>
-          <h5 *ngIf="slideCounter === 2">Modifica le impostazioni della partita</h5>
-          <h5 *ngIf="slideCounter === 3">Controlla le tue scelte</h5>
-        </div>
-        <div class="col-6 d-flex justify-content-end align-items-center">
-          <button (click)="closeModal()" close-icon-btn>
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      </div>
-    </div>
+  <div customDialogHeader>
+    <h3>Personalizza i giocatori</h3>
+    <button (click)="closeModal()" close-icon-btn>
+      <i class="fas fa-times"></i>
+    </button>
   </div>
+
 
   <!--  DIALOG CONTENT-->
   <div class="dialog-content">
 
     <!--  SLIDE 1-->
     <div *ngIf="slideCounter === 1" class="slider">
+
       <form [formGroup]="gameConfiguration" action="">
         <div class="container-fluid">
+
           <div class="row">
             <div class="col-4">
               Seleziona il numero di giocatori.
@@ -37,8 +30,10 @@
                 </select>
               </div>
             </div>
-            <div class="col-8 d-flex justify-content-center align-items-start flex-column">
+          </div>
 
+          <div class="row">
+            <div class="col-8 d-flex justify-content-center align-items-start flex-column">
               <ng-container formArrayName="players">
                 <ng-container *ngFor="let player of players.controls; let i = index;"
                               [formGroupName]="i">
@@ -80,11 +75,16 @@
                         </select>
                       </div>
                     </div>
+
                     <div class="player-customization-display">
-                      <span class="me-2"><strong>{{players.value[i].name}}</strong></span>
-                      <i [class]="players.value[i].icon" [style.color]="players.value[i].color "
+                      <span class="me-2">
+                        <strong>{{players.value[i].name}}</strong>
+                      </span>
+                      <i [class]="players.value[i].icon"
+                         [style.color]="players.value[i].color "
                          class="fa-3x"></i>
                     </div>
+
                   </div>
                 </ng-container>
               </ng-container>
@@ -92,6 +92,7 @@
           </div>
         </div>
       </form>
+
     </div>
     <!--  SLIDE 2-->
     <div *ngIf="slideCounter === 2" class="slider">
@@ -135,6 +136,7 @@
       </form>
 
     </div>
+
     <!--  SLIDE 3-->
     <div *ngIf="slideCounter === 3" class="slider">
       <div class="container-fluid">
@@ -150,19 +152,19 @@
   </div>
 
   <!--  DIALOG FOOTER-->
-  <div class="dialog-footer">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-6 d-flex justify-content-start align-items-center">
-          <button (click)="sliderBack()"
-                  *ngIf="slideCounter !== minSlide"
-                  color="primary"
-                  main-icon-btn>
-            <i class="fas fa-arrow-left"
-            ></i>
-          </button>
-        </div>
-        <div *ngIf="slideCounter !== maxSlide" class="col-6 d-flex justify-content-end align-items-center">
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-6 d-flex justify-content-start align-items-center">
+        <button (click)="sliderBack()"
+                *ngIf="slideCounter !== minSlide"
+                color="primary"
+                main-icon-btn>
+          <i class="fas fa-arrow-left"
+          ></i>
+        </button>
+      </div>
+      <div class="col-6 d-flex justify-content-end align-items-center">
+        <div *ngIf="slideCounter !== maxSlide">
           <button
             (click)="sliderForward()"
             color="primary"
@@ -172,10 +174,14 @@
             ></i>
           </button>
         </div>
-        <div *ngIf="slideCounter === maxSlide" class="col-6 d-flex justify-content-end align-items-center">
-          <button [disabled]="!gameConfiguration.valid" color="secondary" main-btn>AVVIA LA PARTITA</button>
+        <div *ngIf="slideCounter === maxSlide">
+          <button [disabled]="!gameConfiguration.valid"
+                  color="secondary" main-btn>
+            AVVIA LA PARTITA
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+

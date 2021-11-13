@@ -91,7 +91,6 @@ export class StartingModalComponent implements OnInit {
   }
 
   populateMatchConfig(key: string): void {
-    console.log(key, 'key');
     const index = this.matchPresetArray.findIndex((preset) => preset.key === key);
     (this.matchConfig.get('startingMoney') as FormControl).patchValue(this.matchPresetArray[index].startingMoney);
   }

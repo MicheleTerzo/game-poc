@@ -15,7 +15,11 @@ import {CompanyCardComponent} from './features/table-board/components/company-ca
 import {StationCardComponent} from './features/table-board/components/station-card/station-card.component';
 import {TestingComponent} from './features/testing/testing/testing.component';
 import {CloseIconButtonDirective, MainButtonDirective, MainIconButtonDirective,} from './directives/buttons.directive';
-import { CustomDialogDirective } from './directives/custom-dialog.directive';
+import {
+  CustomDialogDirective,
+  CustomDialogFooterDirective,
+  CustomDialogHeaderDirective
+} from './directives/custom-dialog.directive';
 
 @NgModule({
   declarations: [
@@ -30,10 +34,11 @@ import { CustomDialogDirective } from './directives/custom-dialog.directive';
     StationCardComponent,
     TestingComponent,
     MainButtonDirective,
-
     MainIconButtonDirective,
     CloseIconButtonDirective,
-    CustomDialogDirective
+    CustomDialogDirective,
+    CustomDialogHeaderDirective,
+    CustomDialogFooterDirective
   ],
   imports: [
     BrowserModule,
